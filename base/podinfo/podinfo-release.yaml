@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo
+  namespace: dev-team
+spec:
+  targetNamespace: apps
+  serviceAccountName: gitops-reconciler
+  releaseName: podinfo
+  chart:
+    spec:
+      chart: podinfo
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+  interval: 1m

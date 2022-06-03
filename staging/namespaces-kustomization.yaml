@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: namespaces
+  namespace: dev-team
+spec:
+  serviceAccountName: gitops-reconciler
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: dev-team
+  path: ./staging/namespaces
+  prune: true
