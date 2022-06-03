@@ -22,5 +22,8 @@ spec:
     name: dev-team
   prune: true
   validation: client
-
+  kubeConfig:
+    secretRef:
+      key: value
+      name: dev-team-kubeconfig
 
